@@ -57,5 +57,10 @@ public class CustomerService {
 		return cus;
 	}
 	
+	public String deletByName(String name) {
+		repo.deleteByName(name);
+		return Constant.SUCCESS;
+	}
+	
 
 }
