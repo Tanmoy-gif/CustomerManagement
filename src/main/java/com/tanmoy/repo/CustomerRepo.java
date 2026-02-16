@@ -9,5 +9,7 @@ import com.tanmoy.entity.Customer;
 
 public interface CustomerRepo extends JpaRepository<Customer, Integer>{
 	public List<Customer> findByName(String name);
+	
+	
 
 }

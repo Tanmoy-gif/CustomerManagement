@@ -41,5 +41,11 @@ public class CustomerEndPoint {
 		List<Customer> customer=service.getCustByName(name);
 		return new ResponseEntity<List<Customer>>(customer,HttpStatus.OK);
 	}
+	@GetMapping(value = "/getAll")
+	public ResponseEntity<List<Customer>> getAllCustomers(){
+		List<Customer> customer=service.getAllCustomers();
+		return new ResponseEntity<List<Customer>>(customer,HttpStatus.OK);
+	}
+	
 
 }

@@ -50,5 +50,12 @@ public class CustomerService {
 		
 		return cus;
 	}
+	
+	public List<Customer> getAllCustomers() {
+		List<Customer> cus=repo.findAll();
+		
+		return cus;
+	}
+	
 
 }
