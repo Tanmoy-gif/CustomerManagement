@@ -15,6 +15,7 @@ import com.tanmoy.entity.Customer;
 import com.tanmoy.service.CustomerService;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -48,10 +49,19 @@ public class CustomerEndPoint {
 		return new ResponseEntity<List<Customer>>(customer,HttpStatus.OK);
 	}
 	
+	
 	@DeleteMapping(value = "deleteByName/{name}")
 	public ResponseEntity<String> deleteByName(@PathVariable String name){
 		String res=service.deletByName(name);
 		return new ResponseEntity<String>(res,HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/customer")
+	public ResponseEntity<Customer> getByNameAndEmail(@RequestParam String name,
+														@RequestParam String email){
+		List<Customer> cust=service.getByNameAndEmail(name, email);
+		
+		return new ResponseEntity<Customer>(cust.get(0),HttpStatus.OK);
 	}
 	
 

@@ -10,8 +10,9 @@ import com.tanmoy.entity.Customer;
 
 public interface CustomerRepo extends JpaRepository<Customer, Integer>{
 	public List<Customer> findByName(String name);
-	@Query(value = "DELETE FROM customer WHERE name = ?" ,nativeQuery = true)
-	public void deleteByName(String name);
+	//@Query(value = "DELETE FROM customer WHERE name = ?" ,nativeQuery = true)
+	public long deleteByName(String name);
+	public List<Customer> findByNameAndEmail(String name,String email);
 	
 
 }

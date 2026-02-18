@@ -57,9 +57,15 @@ public class CustomerService {
 		return cus;
 	}
 	
+	@Transactional
 	public String deletByName(String name) {
 		repo.deleteByName(name);
 		return Constant.SUCCESS;
+	}
+	
+	public List<Customer> getByNameAndEmail(String name,String email){
+		List<Customer> cust=repo.findByNameAndEmail(name, email);
+		return cust;
 	}
 	
 
